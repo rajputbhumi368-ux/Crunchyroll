@@ -522,6 +522,7 @@
         <header class="flex items-center gap-4 h-[76px] px-6 border-b border-neutral-800">
           <button onclick="freshCloseAll()" class="p-1" aria-label="Back"><svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 18l-6-6 6-6"/></svg></button>
           <h1 id="fresh-all-title" class="text-[24px] font-extrabold tracking-tight"></h1>
+          <button onclick="showToast('Filters: Dub, Sub, Season')" class="p-1" aria-label="Filter"><svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16"/><circle cx="9" cy="7" r="1.7" fill="currentColor"/><circle cx="15" cy="12" r="1.7" fill="currentColor"/><circle cx="10" cy="17" r="1.7" fill="currentColor"/></svg></button>
         </header>
         <div id="fresh-all-rows" class="pt-6 space-y-8"></div>
       </section>
@@ -1309,6 +1310,28 @@
         {title:"Solo Leveling", age:"Dub | Sub", img:"https://images.unsplash.com/photo-1563089145-599997674d42?q=80&w=700&auto=format&fit=crop", genres:"Action, Fantasy"}
       ]
     };
+    const freshExtraGenreShows = {
+      Isekai: [
+        {title:"In Another World With My Smartphone", age:"Dub | Sub", img:"https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?q=80&w=700&auto=format&fit=crop", genres:"Isekai, Fantasy"},
+        {title:"Seirei Gensouki: Spirit Chronicles", age:"Dub | Sub", img:"https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=700&auto=format&fit=crop", genres:"Isekai, Fantasy"},
+        {title:"How a Realist Hero Rebuilt the Kingdom", age:"Dub | Sub", img:"https://images.unsplash.com/photo-1563089145-599997674d42?q=80&w=700&auto=format&fit=crop", genres:"Isekai, Fantasy"}
+      ],
+      Romance: [
+        {title:"Fena: Pirate Princess", age:"Subtitled", img:"https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=700&auto=format&fit=crop", genres:"Romance, Adventure"},
+        {title:"Chrono Crusade", age:"Dub | Sub", img:"https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?q=80&w=700&auto=format&fit=crop", genres:"Romance, Fantasy"},
+        {title:"The World is Still Beautiful", age:"Subtitled", img:"https://images.unsplash.com/photo-1541701494587-cb58502866ab?q=80&w=700&auto=format&fit=crop", genres:"Romance, Fantasy"}
+      ],
+      "Sci-Fi": [
+        {title:"Fire Force", age:"Dub | Sub", img:"https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=700&auto=format&fit=crop", genres:"Sci-Fi, Action"},
+        {title:"TRIGUN STAMPEDE", age:"Dub | Sub", img:"https://images.unsplash.com/photo-1541701494587-cb58502866ab?q=80&w=700&auto=format&fit=crop", genres:"Sci-Fi, Adventure"},
+        {title:"My Hero Academia", age:"Dub | Sub", img:"https://images.unsplash.com/photo-1563089145-599997674d42?q=80&w=700&auto=format&fit=crop", genres:"Sci-Fi, Action"}
+      ],
+      Supernatural: [
+        {title:"To Your Eternity", age:"Dub | Sub", img:"https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=700&auto=format&fit=crop", genres:"Supernatural, Drama"},
+        {title:"JoJo's Bizarre Adventure", age:"Subtitled", img:"https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?q=80&w=700&auto=format&fit=crop", genres:"Supernatural, Action"},
+        {title:"Hunter x Hunter", age:"Dub | Sub", img:"https://images.unsplash.com/photo-1563089145-599997674d42?q=80&w=700&auto=format&fit=crop", genres:"Supernatural, Action"}
+      ]
+    };
     const freshGenreInfo = {
       ADVENTURE: {title:"Adventure", icon:'<svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M4 8.5l8-3 8 3v7l-8 3-8-3v-7z"/><path d="M8 10l2 1 2-1 2 1 2-1M12 8v7"/></svg>', description:"Venture forth with heroes who hope to achieve their dreams!"},
       ACTION: {title:"Action", icon:'<svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M12 3c1 4 3 6 6 7-3 1-5 3-6 7-1-4-3-6-6-7 3-1 5-3 6-7z"/></svg>', description:"Fast-paced battles, fearless heroes, and impossible challenges."}
@@ -1323,24 +1346,25 @@
       const title=freshSafe(item.title), img=freshSafe(item.img), audio=freshSafe(item.age), genres=freshSafe(item.genres);
       return `<article class="flex-none w-[31%] min-w-0"><button class="block w-full text-left" onclick="openAnimeDetails('${title}','${genres}','${audio}','${img}')"><div class="w-full aspect-[2/3] overflow-hidden bg-neutral-900"><img src="${img}" alt="${title}" class="w-full h-full object-cover"></div><p class="mt-2 text-[13px] leading-tight truncate">${title}</p>${item.time?`<p class="mt-2 text-[12px] text-neutral-400 truncate">${freshSafe(item.time)}</p>`:''}<div class="mt-2 flex items-center justify-between text-[12px] text-neutral-400"><span>${audio}</span><span class="text-xl leading-none">⋮</span></div></button></article>`;
     }
+    function freshAllCard(item){ return freshPosterCard(item).replace('flex-none w-[31%]','min-w-0'); }
     function freshOpenGenre(name){
       const key=String(name||'ADVENTURE').toUpperCase();
       const info=freshGenreInfo[key]||freshGenreInfo.ADVENTURE;
       document.getElementById('fresh-genre-icon').innerHTML=info.icon;
       document.getElementById('fresh-genre-title').innerText=info.title;
       document.getElementById('fresh-genre-description').innerText=info.description;
-      const rows=[['Popular',freshGenreShows.popular],['New',freshGenreShows.new],['Action',freshGenreShows.action]];
+      const rows=[['Popular',freshGenreShows.popular],['New',freshGenreShows.new],['Action',freshGenreShows.action],['Isekai',freshExtraGenreShows.Isekai],['Romance',freshExtraGenreShows.Romance],['Sci-Fi',freshExtraGenreShows['Sci-Fi']],['Supernatural',freshExtraGenreShows.Supernatural]];
       document.getElementById('fresh-genre-rows').innerHTML=rows.map(([label,items])=>`<section class="pb-1"><div class="flex items-center justify-between px-6 mb-4"><h3 class="text-[18px] font-medium">${label}</h3><button onclick="freshOpenAll('${label}')" class="text-[15px] font-bold">View All</button></div><div class="flex gap-3 overflow-x-auto no-scrollbar px-6">${freshExpand(items).map(freshPosterCard).join('')}</div></section>`).join('');
       document.getElementById('fresh-genre-detail').classList.remove('hidden');
       window.scrollTo({top:0,behavior:'smooth'});
     }
     function freshCloseGenre(){ document.getElementById('fresh-genre-detail').classList.add('hidden'); }
     function freshOpenAll(label){
-      const source = freshGenreShows[String(label).toLowerCase()] || freshGenreShows.action;
+      const key=String(label||'Popular');
+      const source = freshGenreShows[key.toLowerCase()] || freshExtraGenreShows[key] || freshGenreShows.action;
       const extended=freshExpand(source);
-      document.getElementById('fresh-all-title').innerText=label;
-      const sections=[['Popular',extended],['New Releases',freshExpand(freshGenreShows.new)],['Recommended for You',freshExpand(freshGenreShows.action)],['More in '+label,extended]];
-      document.getElementById('fresh-all-rows').innerHTML=sections.map(([heading,items])=>`<section><div class="flex items-center justify-between px-6 mb-4"><h2 class="text-[18px] font-medium">${heading}</h2><span class="text-[13px] text-neutral-400">${items.length} titles</span></div><div class="flex gap-3 overflow-x-auto no-scrollbar px-6">${items.map(freshPosterCard).join('')}</div></section>`).join('');
+      document.getElementById('fresh-all-title').innerText=key;
+      document.getElementById('fresh-all-rows').innerHTML='<section><div class="grid grid-cols-2 gap-x-3 gap-y-6 px-6">'+extended.concat(extended).map(freshAllCard).join('')+'</div></section>';
       document.getElementById('fresh-genre-detail').classList.add('hidden');
       document.getElementById('fresh-view-all').classList.remove('hidden');
       window.scrollTo({top:0,behavior:'smooth'});
