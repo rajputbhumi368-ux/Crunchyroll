@@ -752,23 +752,13 @@
     </div>
   </div>
 
-  <div id="search-modal" class="fixed inset-0 z-[80] bg-black/95 backdrop-blur-md hidden p-4 flex flex-col space-y-4">
-    <div class="flex items-center gap-2">
-      <div class="relative flex-1">
-        <input id="search-input" oninput="handleSearch(this.value)" type="text" placeholder="Search anime, genre, characters..." class="w-full bg-neutral-900 border border-neutral-700 rounded-full py-2.5 pl-10 pr-4 text-sm text-white focus:outline-none focus:border-cr-orange"/>
-        <span class="absolute left-3.5 top-3 text-neutral-400">🔍</span>
-      </div>
-      <button onclick="closeSearchModal()" class="text-xs font-bold text-neutral-300 px-2 py-1">Cancel</button>
+  <div id="search-modal" class="fixed inset-0 z-[80] hidden bg-black text-white">
+    <div class="flex items-center gap-4 h-[76px] px-6 bg-[#202126] border-b border-neutral-800">
+      <button onclick="closeSearchModal()" class="p-1" aria-label="Back"><svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 18l-6-6 6-6"/></svg></button>
+      <input id="search-input" oninput="handleSearch(this.value)" type="text" autocomplete="off" placeholder="Search" class="flex-1 bg-transparent text-[24px] font-bold text-white placeholder:text-neutral-400 focus:outline-none"/>
+      <button id="search-clear" onclick="clearSearchInput()" class="hidden p-1" aria-label="Clear"><svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24"><path stroke-linecap="round" d="M6 6l12 12M18 6L6 18"/></svg></button>
     </div>
-    <div class="text-xs font-bold text-neutral-400 uppercase tracking-wider">Trending Searches</div>
-    <div class="flex flex-wrap gap-2 text-xs">
-      <span onclick="applySearchTag('One Piece')" class="px-3 py-1.5 bg-neutral-900 rounded-full cursor-pointer hover:text-cr-orange">🔥 One Piece</span>
-      <span onclick="applySearchTag('Solo Leveling')" class="px-3 py-1.5 bg-neutral-900 rounded-full cursor-pointer hover:text-cr-orange">Solo Leveling</span>
-      <span onclick="applySearchTag('Jujutsu Kaisen')" class="px-3 py-1.5 bg-neutral-900 rounded-full cursor-pointer hover:text-cr-orange">Jujutsu Kaisen</span>
-      <span onclick="applySearchTag('Black Clover')" class="px-3 py-1.5 bg-neutral-900 rounded-full cursor-pointer hover:text-cr-orange">Black Clover</span>
-      <span onclick="applySearchTag('Naruto')" class="px-3 py-1.5 bg-neutral-900 rounded-full cursor-pointer hover:text-cr-orange">Naruto</span>
-    </div>
-    <div id="search-results" class="flex-1 overflow-y-auto space-y-2 pt-2"></div>
+    <div id="search-results" class="flex-1 overflow-y-auto px-6 pt-7 pb-20"></div>
   </div>
 
   <div id="action-sheet" class="fixed inset-0 z-[80] bg-black/70 hidden flex items-end" onclick="closeActionSheet()">
@@ -1259,17 +1249,34 @@
     function shareAnimeLink(){ showToast('Share link copied to clipboard!'); }
     function openPremiumModal(){ document.getElementById('premium-modal').classList.remove('hidden'); }
     function closePremiumModal(){ document.getElementById('premium-modal').classList.add('hidden'); }
-    const allSearchTitles = ["One Piece","My Hero Academia","Solo Leveling","JUJUTSU KAISEN","Mushoku Tensei: Jobless Reincarnation","Daemons of the Shadow Realm","BLACK TORCH","The Villager of Level 999","The Irregular at Magic High School","Naruto Shippuden","Naruto","That Time I Got Reincarnated as a Slime","Shinobi no Ittoki","Cells at Work!","Kaguya-sama: Love is War","The Misfit of Demon King Academy II","Crowned in a Hundred Days","LINK CLICK","The Exiled Heavy Knight","Dragon Ball Z","Dragon Ball GT","Love After World Domination","I'm in Love with the Villainess","Black Clover","Fullmetal Alchemist: Brotherhood","You and I Are Polar Opposites","Frieren: Beyond Journey's End","Golden Kamuy","Fire Force Season 3","Fate/strange Fake","Kaiju No. 8","The 100 Girlfriends Who Really Love You","Saga of Tanya the Evil"];
-    function openSearchModal(){ document.getElementById('search-modal').classList.remove('hidden'); document.getElementById('search-input').focus(); }
-    function closeSearchModal(){ document.getElementById('search-modal').classList.add('hidden'); }
-    function handleSearch(query){
-      const box=document.getElementById('search-results');
-      if(!query.trim()){ box.innerHTML=''; return; }
-      const matched=allSearchTitles.filter(t=>t.toLowerCase().includes(query.toLowerCase()));
-      if(!matched.length){ box.innerHTML='<p class="text-xs text-neutral-500 py-4 text-center">No anime matching "'+query+'"</p>'; return; }
-      box.innerHTML=matched.map(m=>'<div onclick="openAnimeDetails(\''+esc(m)+'\'); closeSearchModal()" class="flex items-center justify-between p-2.5 bg-neutral-900 hover:bg-neutral-800 rounded cursor-pointer"><div class="flex items-center gap-2.5"><span class="text-cr-orange text-xs">▶</span><span class="text-xs font-semibold text-white">'+m+'</span></div><span class="text-[10px] text-neutral-400">View ›</span></div>').join('');
+    const searchReferenceItems=[
+      {title:'JUJUTSU KAISEN',meta:'4 Seasons, 60 Episodes',audio:'Dub | Sub',kind:'Series',img:'https://images.unsplash.com/photo-1541701494587-cb58502866ab?q=80&w=700&auto=format&fit=crop'},
+      {title:'JUJUTSU KAISEN 0',meta:'1 Season, 1 Episode',audio:'Dub | Sub',kind:'Movies',img:'https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=700&auto=format&fit=crop'},
+      {title:'How Not to Summon a Demon Lord',meta:'3 Seasons, 32 Episodes',audio:'Dub | Sub',kind:'Series',img:'https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?q=80&w=700&auto=format&fit=crop'},
+      {title:'Sony Music AnimeSongs ONLINE 2022',meta:'1 Season, 1 Episode',audio:'Japanese',kind:'Series',img:'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=700&auto=format&fit=crop'}
+    ];
+    function searchResultRow(item){
+      const t=esc(item.title), img=esc(item.img);
+      return '<button onclick="openAnimeDetails(\''+t+'\',\'Action, Adventure\',\''+esc(item.audio)+'\',\''+img+'\');closeSearchModal()" class="w-full flex items-center gap-4 py-2 text-left"><div class="w-[42%] aspect-[16/9] shrink-0 overflow-hidden bg-neutral-900"><img src="'+img+'" class="w-full h-full object-cover" alt="'+t+'"></div><div class="min-w-0 flex-1"><p class="text-[17px] font-semibold truncate">'+t+'</p><p class="text-[15px] text-neutral-400 mt-1">'+item.meta+'</p><p class="text-[14px] mt-3"><span class="text-[#12b8b5]">'+item.kind+'</span><span class="text-neutral-400"> • '+item.audio+'</span></p></div><span class="text-3xl leading-none text-neutral-400">⋮</span></button>';
     }
-    function applySearchTag(tag){ document.getElementById('search-input').value=tag; handleSearch(tag); }
+    function openSearchModal(){
+      document.getElementById('search-modal').classList.remove('hidden');
+      document.getElementById('search-input').focus();
+      handleSearch(document.getElementById('search-input').value);
+    }
+    function closeSearchModal(){ document.getElementById('search-modal').classList.add('hidden'); }
+    function clearSearchInput(){ const input=document.getElementById('search-input'); input.value=''; handleSearch(''); input.focus(); }
+    function handleSearch(query){
+      const box=document.getElementById('search-results'), clear=document.getElementById('search-clear');
+      clear.classList.toggle('hidden',!query.trim());
+      if(!query.trim()){ box.innerHTML=''; return; }
+      const matched=searchReferenceItems.filter(item=>item.title.toLowerCase().includes(query.toLowerCase()) || query.toLowerCase().includes('jujutsu'));
+      if(!matched.length){ box.innerHTML='<p class="text-sm text-neutral-500 py-8 text-center">No results found</p>'; return; }
+      const top=matched.slice(0,3), series=matched.filter(x=>x.kind==='Series'), movies=matched.filter(x=>x.kind==='Movies');
+      const section=(name,items,view)=>items.length?'<section class="mb-8"><div class="flex items-center justify-between mb-4"><h2 class="text-[21px] font-normal">'+name+'</h2>'+(view?'<button onclick="showToast(\'Showing all '+name+' results\')" class="text-cr-orange text-[15px] font-bold">View All</button>':'')+'</div><div class="space-y-2">'+items.map(searchResultRow).join('')+'</div></section>':'';
+      box.innerHTML=section('Top Results',top,false)+section('Series',series,true)+section('Movies',movies,true);
+    }
+    function applySearchTag(tag){ const input=document.getElementById('search-input'); input.value=tag; handleSearch(tag); }
     function setDeviceView(mode){
       const wrapper=document.getElementById('viewport-wrapper'), stickyBar=document.getElementById('sticky-premium-bar'), bottomNav=document.querySelector('nav');
       const btnPhone=document.getElementById('btn-phone'), btnFull=document.getElementById('btn-full');
