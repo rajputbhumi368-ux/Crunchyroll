@@ -66,24 +66,6 @@ async function jikanPage(options = {}) {
   const json = await response.json();
   return (json.data || []).map(jikanMedia).map(anilistItem);
 }
-let fallbackAnimeCache = [];
-const fallbackCacheReady = fetch('assets/anime-cache.json').then(response => response.ok ? response.json() : []).then(items => { fallbackAnimeCache = items; return items; }).catch(() => []);
-function fallbackPage(options = {}) {
-  let items = fallbackAnimeCache.slice();
-  if (options.search) {
-    const q = options.search.toLowerCase();
-    items = items.filter(item => [item.title, item.title_english, item.title_japanese, ...(item.genres || [])].filter(Boolean).join(' ').toLowerCase().includes(q));
-  } else if (options.genre) {
-    items = items.filter(item => (item.genres || []).includes(options.genre));
-  }
-  return items.map(item => anilistItem({
-    id: 'cache-' + item.mal_id,
-    title: { romaji: item.title, english: item.title_english, native: item.title_japanese },
-    coverImage: { large: item.image, extraLarge: item.image },
-    genres: item.genres, countryOfOrigin: 'JP', averageScore: item.score ? Math.round(item.score * 10) : null,
-    episodes: item.episodes, synopsis: item.synopsis, description: item.synopsis
-  }));
-}
 async function fetchAniListPage(options = {}) {
   try {
     const data = await anilistQuery(ANILIST_PAGE_QUERY, {
@@ -96,15 +78,8 @@ async function fetchAniListPage(options = {}) {
     });
     return (data.Page.media || []).map(anilistItem);
   } catch (error) {
-    console.warn('AniList unavailable; trying real Jikan/MAL catalog fallback.', error);
-    try {
-      const liveFallback = await jikanPage(options);
-      if (liveFallback.length) return liveFallback;
-    } catch (fallbackError) {
-      console.warn('Jikan unavailable; using bundled real-anime cache.', fallbackError);
-    }
-    await fallbackCacheReady;
-    return fallbackPage(options);
+    console.warn('AniList unavailable; using real Jikan/MAL catalog fallback.', error);
+    return await jikanPage(options);
   }
 }
 
