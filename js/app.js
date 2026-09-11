@@ -613,3 +613,21 @@ const SAMPLE_STREAM = "https://commondatastorage.googleapis.com/gtv-videos-bucke
     }
     function freshCloseAll(){ document.getElementById('fresh-view-all').classList.add('hidden'); document.getElementById('fresh-genre-detail').classList.remove('hidden'); }
     function openGenre(name){ freshOpenGenre(name); }
+
+    function expandHomeAnimeRails(){
+      const home = document.getElementById('tab-home');
+      if(!home) return;
+      home.querySelectorAll('.flex.gap-3.overflow-x-auto').forEach((rail)=>{
+        const cards = Array.from(rail.children).filter(card => card.classList.contains('flex-none') && card.querySelector('img'));
+        if(!cards.length || cards.length >= 10) return;
+        rail.classList.add('flex-nowrap','scroll-smooth');
+        cards.forEach(card => card.classList.add('snap-start'));
+        for(let i=cards.length; i<10; i++){
+          const clone = cards[i % cards.length].cloneNode(true);
+          clone.classList.add('snap-start');
+          rail.appendChild(clone);
+        }
+      });
+    }
+    if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', expandHomeAnimeRails);
+    else expandHomeAnimeRails();
