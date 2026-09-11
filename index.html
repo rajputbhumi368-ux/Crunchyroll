@@ -121,23 +121,23 @@
 
       <section class="space-y-2.5">
         <div class="flex items-center justify-between px-4"><h2 class="text-lg font-bold tracking-tight text-white">Most Popular</h2></div>
-        <div class="flex gap-3 overflow-x-auto no-scrollbar px-4 pt-1 pb-2">
-          <div class="flex-none w-32 space-y-1.5 cursor-pointer group" onclick="openAnimeDetails('My Hero Academia', 'Superheroes, Action', 'Dub | Sub', 'https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=600&auto=format&fit=crop')">
+        <div class="flex gap-3 overflow-x-auto no-scrollbar flex-nowrap scroll-smooth px-4 pt-1 pb-2">
+          <div class="flex-none w-32 snap-start space-y-1.5 cursor-pointer group" onclick="openAnimeDetails('My Hero Academia', 'Superheroes, Action', 'Dub | Sub', 'https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=600&auto=format&fit=crop')">
             <div class="w-full aspect-[2/3] rounded-sm overflow-hidden bg-neutral-800 relative group-hover:ring-2 group-hover:ring-cr-orange transition"><img src="https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=600&auto=format&fit=crop" class="w-full h-full object-cover" alt="My Hero Academia"/></div>
             <p class="text-xs font-semibold text-white truncate">My Hero Academia</p>
             <div class="flex items-center justify-between text-[11px] text-cr-subtext"><span>Dub | Sub</span><button onclick="event.stopPropagation(); openActionSheet('My Hero Academia')" class="hover:text-white p-0.5">⋮</button></div>
           </div>
-          <div class="flex-none w-32 space-y-1.5 cursor-pointer group" onclick="openAnimeDetails('Solo Leveling', 'Fantasy, Action', 'Dub | Sub', 'https://images.unsplash.com/photo-1563089145-599997674d42?q=80&w=600&auto=format&fit=crop')">
+          <div class="flex-none w-32 snap-start space-y-1.5 cursor-pointer group" onclick="openAnimeDetails('Solo Leveling', 'Fantasy, Action', 'Dub | Sub', 'https://images.unsplash.com/photo-1563089145-599997674d42?q=80&w=600&auto=format&fit=crop')">
             <div class="w-full aspect-[2/3] rounded-sm overflow-hidden bg-neutral-800 relative group-hover:ring-2 group-hover:ring-cr-orange transition"><img src="https://images.unsplash.com/photo-1563089145-599997674d42?q=80&w=600&auto=format&fit=crop" class="w-full h-full object-cover" alt="Solo Leveling"/></div>
             <p class="text-xs font-semibold text-white truncate">Solo Leveling</p>
             <div class="flex items-center justify-between text-[11px] text-cr-subtext"><span>Dub | Sub</span><button onclick="event.stopPropagation(); openActionSheet('Solo Leveling')" class="hover:text-white p-0.5">⋮</button></div>
           </div>
-          <div class="flex-none w-32 space-y-1.5 cursor-pointer group" onclick="openAnimeDetails('JUJUTSU KAISEN', 'Supernatural, Dark Fantasy', 'Dub | Sub', 'https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?q=80&w=600&auto=format&fit=crop')">
+          <div class="flex-none w-32 snap-start space-y-1.5 cursor-pointer group" onclick="openAnimeDetails('JUJUTSU KAISEN', 'Supernatural, Dark Fantasy', 'Dub | Sub', 'https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?q=80&w=600&auto=format&fit=crop')">
             <div class="w-full aspect-[2/3] rounded-sm overflow-hidden bg-neutral-800 relative group-hover:ring-2 group-hover:ring-cr-orange transition"><img src="https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?q=80&w=600&auto=format&fit=crop" class="w-full h-full object-cover" alt="JUJUTSU KAISEN"/></div>
             <p class="text-xs font-semibold text-white truncate">JUJUTSU KAISEN</p>
             <div class="flex items-center justify-between text-[11px] text-cr-subtext"><span>Dub | Sub</span><button onclick="event.stopPropagation(); openActionSheet('JUJUTSU KAISEN')" class="hover:text-white p-0.5">⋮</button></div>
           </div>
-          <div class="flex-none w-32 space-y-1.5 cursor-pointer group" onclick="openAnimeDetails('Mushoku Tensei: Jobless Reincarnation', 'Isekai, Fantasy', 'Dub | Sub', 'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=600&auto=format&fit=crop')">
+          <div class="flex-none w-32 snap-start space-y-1.5 cursor-pointer group" onclick="openAnimeDetails('Mushoku Tensei: Jobless Reincarnation', 'Isekai, Fantasy', 'Dub | Sub', 'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=600&auto=format&fit=crop')">
             <div class="w-full aspect-[2/3] rounded-sm overflow-hidden bg-neutral-800 relative group-hover:ring-2 group-hover:ring-cr-orange transition"><img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=600&auto=format&fit=crop" class="w-full h-full object-cover" alt="Mushoku Tensei"/></div>
             <p class="text-xs font-semibold text-white truncate">Mushoku Tensei S3</p>
             <div class="flex items-center justify-between text-[11px] text-cr-subtext"><span>Dub | Sub</span><button onclick="event.stopPropagation(); openActionSheet('Mushoku Tensei S3')" class="hover:text-white p-0.5">⋮</button></div>
@@ -147,18 +147,18 @@
 
       <section class="space-y-2.5">
         <div class="px-4"><h2 class="text-lg font-bold tracking-tight text-white">New Anime from the Current Season</h2></div>
-        <div class="flex gap-3 overflow-x-auto no-scrollbar px-4 pt-1 pb-2">
-          <div class="flex-none w-32 space-y-1.5 cursor-pointer" onclick="openAnimeDetails('Daemons of the Shadow Realm', 'Action, Supernatural', 'Dub | Sub')">
+        <div class="flex gap-3 overflow-x-auto no-scrollbar flex-nowrap scroll-smooth px-4 pt-1 pb-2">
+          <div class="flex-none w-32 snap-start space-y-1.5 cursor-pointer" onclick="openAnimeDetails('Daemons of the Shadow Realm', 'Action, Supernatural', 'Dub | Sub')">
             <div class="w-full aspect-[2/3] rounded-sm overflow-hidden bg-neutral-800"><img src="https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?q=80&w=600&auto=format&fit=crop" class="w-full h-full object-cover"/></div>
             <p class="text-xs font-semibold text-white truncate">Daemons of the Shad...</p>
             <div class="flex items-center justify-between text-[11px] text-cr-subtext"><span>Dub | Sub</span><button onclick="event.stopPropagation(); openActionSheet('Daemons of the Shadow Realm')" class="hover:text-white p-0.5">⋮</button></div>
           </div>
-          <div class="flex-none w-32 space-y-1.5 cursor-pointer" onclick="openAnimeDetails('BLACK TORCH', 'Ninja, Supernatural', 'Dub | Sub')">
+          <div class="flex-none w-32 snap-start space-y-1.5 cursor-pointer" onclick="openAnimeDetails('BLACK TORCH', 'Ninja, Supernatural', 'Dub | Sub')">
             <div class="w-full aspect-[2/3] rounded-sm overflow-hidden bg-neutral-800"><img src="https://images.unsplash.com/photo-1541701494587-cb58502866ab?q=80&w=600&auto=format&fit=crop" class="w-full h-full object-cover"/></div>
             <p class="text-xs font-semibold text-white truncate">BLACK TORCH</p>
             <div class="flex items-center justify-between text-[11px] text-cr-subtext"><span>Dub | Sub</span><button onclick="event.stopPropagation(); openActionSheet('BLACK TORCH')" class="hover:text-white p-0.5">⋮</button></div>
           </div>
-          <div class="flex-none w-32 space-y-1.5 cursor-pointer" onclick="openAnimeDetails('The Villager of Level 999', 'Fantasy, Adventure', 'Subtitled')">
+          <div class="flex-none w-32 snap-start space-y-1.5 cursor-pointer" onclick="openAnimeDetails('The Villager of Level 999', 'Fantasy, Adventure', 'Subtitled')">
             <div class="w-full aspect-[2/3] rounded-sm overflow-hidden bg-neutral-800"><img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=600&auto=format&fit=crop" class="w-full h-full object-cover"/></div>
             <p class="text-xs font-semibold text-white truncate">The Villager of Level...</p>
             <div class="flex items-center justify-between text-[11px] text-cr-subtext"><span>Subtitled</span><button onclick="event.stopPropagation(); openActionSheet('The Villager of Level 999')" class="hover:text-white p-0.5">⋮</button></div>
@@ -186,8 +186,8 @@
 
       <section class="space-y-2.5">
         <div class="px-4"><h2 class="text-lg font-bold tracking-tight text-white">Continue Watching</h2></div>
-        <div class="flex gap-3 overflow-x-auto no-scrollbar px-4 pt-1 pb-2">
-          <div class="flex-none w-72 bg-neutral-900 rounded-md overflow-hidden border border-white/5 space-y-2 relative cursor-pointer" onclick="openAnimeDetails('The Irregular at Magic High School', 'Action, Fantasy', 'Dub | Sub')">
+        <div class="flex gap-3 overflow-x-auto no-scrollbar flex-nowrap scroll-smooth px-4 pt-1 pb-2">
+          <div class="flex-none w-72 snap-start bg-neutral-900 rounded-md overflow-hidden border border-white/5 space-y-2 relative cursor-pointer" onclick="openAnimeDetails('The Irregular at Magic High School', 'Action, Fantasy', 'Dub | Sub')">
             <div class="relative w-full aspect-[16/9] bg-neutral-800">
               <img src="https://images.unsplash.com/photo-1563089145-599997674d42?q=80&w=600&auto=format&fit=crop" class="w-full h-full object-cover" alt="The Irregular at Magic High School"/>
               <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
@@ -203,18 +203,18 @@
 
       <section class="space-y-2.5">
         <div class="px-4"><h2 class="text-lg font-bold tracking-tight text-white">Top Picks for You</h2></div>
-        <div class="flex gap-3 overflow-x-auto no-scrollbar px-4 pt-1 pb-2">
-          <div class="flex-none w-32 space-y-1.5 cursor-pointer" onclick="openAnimeDetails('Naruto Shippuden', 'Shonen, Ninja', 'Dub | Sub')">
+        <div class="flex gap-3 overflow-x-auto no-scrollbar flex-nowrap scroll-smooth px-4 pt-1 pb-2">
+          <div class="flex-none w-32 snap-start space-y-1.5 cursor-pointer" onclick="openAnimeDetails('Naruto Shippuden', 'Shonen, Ninja', 'Dub | Sub')">
             <div class="w-full aspect-[2/3] rounded-sm overflow-hidden bg-neutral-800"><img src="https://images.unsplash.com/photo-1578632767115-351597cf2477?q=80&w=600&auto=format&fit=crop" class="w-full h-full object-cover"/></div>
             <p class="text-xs font-semibold text-white truncate">Naruto Shippuden</p>
             <div class="flex items-center justify-between text-[11px] text-cr-subtext"><span>Dub | Sub</span><button onclick="event.stopPropagation(); openActionSheet('Naruto Shippuden')" class="hover:text-white p-0.5">⋮</button></div>
           </div>
-          <div class="flex-none w-32 space-y-1.5 cursor-pointer" onclick="openAnimeDetails('Naruto', 'Shonen, Ninja', 'Dub | Sub')">
+          <div class="flex-none w-32 snap-start space-y-1.5 cursor-pointer" onclick="openAnimeDetails('Naruto', 'Shonen, Ninja', 'Dub | Sub')">
             <div class="w-full aspect-[2/3] rounded-sm overflow-hidden bg-neutral-800"><img src="https://images.unsplash.com/photo-1541701494587-cb58502866ab?q=80&w=600&auto=format&fit=crop" class="w-full h-full object-cover"/></div>
             <p class="text-xs font-semibold text-white truncate">Naruto</p>
             <div class="flex items-center justify-between text-[11px] text-cr-subtext"><span>Dub | Sub</span><button onclick="event.stopPropagation(); openActionSheet('Naruto')" class="hover:text-white p-0.5">⋮</button></div>
           </div>
-          <div class="flex-none w-32 space-y-1.5 cursor-pointer" onclick="openAnimeDetails('That Time I Got Reincarnated as a Slime', 'Isekai, Fantasy', 'Dub | Sub')">
+          <div class="flex-none w-32 snap-start space-y-1.5 cursor-pointer" onclick="openAnimeDetails('That Time I Got Reincarnated as a Slime', 'Isekai, Fantasy', 'Dub | Sub')">
             <div class="w-full aspect-[2/3] rounded-sm overflow-hidden bg-neutral-800"><img src="https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=600&auto=format&fit=crop" class="w-full h-full object-cover"/></div>
             <p class="text-xs font-semibold text-white truncate">That Time I Got Rein...</p>
             <div class="flex items-center justify-between text-[11px] text-cr-subtext"><span>Dub | Sub</span><button onclick="event.stopPropagation(); openActionSheet('Slime Isekai')" class="hover:text-white p-0.5">⋮</button></div>
@@ -224,18 +224,18 @@
 
       <section class="space-y-2.5">
         <div class="px-4"><h2 class="text-lg font-bold tracking-tight text-white">Welcome! We Have White-Haired Characters!</h2></div>
-        <div class="flex gap-3 overflow-x-auto no-scrollbar px-4 pt-1 pb-2">
-          <div class="flex-none w-32 space-y-1.5 cursor-pointer" onclick="openAnimeDetails('Shinobi no Ittoki', 'Ninja, Action', 'Dub | Sub')">
+        <div class="flex gap-3 overflow-x-auto no-scrollbar flex-nowrap scroll-smooth px-4 pt-1 pb-2">
+          <div class="flex-none w-32 snap-start space-y-1.5 cursor-pointer" onclick="openAnimeDetails('Shinobi no Ittoki', 'Ninja, Action', 'Dub | Sub')">
             <div class="w-full aspect-[2/3] rounded-sm overflow-hidden bg-neutral-800"><img src="https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?q=80&w=600&auto=format&fit=crop" class="w-full h-full object-cover"/></div>
             <p class="text-xs font-semibold text-white truncate">Shinobi no Ittoki</p>
             <div class="flex items-center justify-between text-[11px] text-cr-subtext"><span>Dub | Sub</span><button onclick="event.stopPropagation(); openActionSheet('Shinobi no Ittoki')" class="hover:text-white p-0.5">⋮</button></div>
           </div>
-          <div class="flex-none w-32 space-y-1.5 cursor-pointer" onclick="openAnimeDetails('Cells at Work!', 'Comedy, Educational', 'Dub | Sub')">
+          <div class="flex-none w-32 snap-start space-y-1.5 cursor-pointer" onclick="openAnimeDetails('Cells at Work!', 'Comedy, Educational', 'Dub | Sub')">
             <div class="w-full aspect-[2/3] rounded-sm overflow-hidden bg-neutral-800"><img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=600&auto=format&fit=crop" class="w-full h-full object-cover"/></div>
             <p class="text-xs font-semibold text-white truncate">Cells at Work!</p>
             <div class="flex items-center justify-between text-[11px] text-cr-subtext"><span>Dub | Sub</span><button onclick="event.stopPropagation(); openActionSheet('Cells at Work!')" class="hover:text-white p-0.5">⋮</button></div>
           </div>
-          <div class="flex-none w-32 space-y-1.5 cursor-pointer" onclick="openAnimeDetails('Naruto', 'Ninja, Shonen', 'Dub | Sub')">
+          <div class="flex-none w-32 snap-start space-y-1.5 cursor-pointer" onclick="openAnimeDetails('Naruto', 'Ninja, Shonen', 'Dub | Sub')">
             <div class="w-full aspect-[2/3] rounded-sm overflow-hidden bg-neutral-800"><img src="https://images.unsplash.com/photo-1541701494587-cb58502866ab?q=80&w=600&auto=format&fit=crop" class="w-full h-full object-cover"/></div>
             <p class="text-xs font-semibold text-white truncate">Naruto</p>
             <div class="flex items-center justify-between text-[11px] text-cr-subtext"><span>Dub | Sub</span><button onclick="event.stopPropagation(); openActionSheet('Naruto Kakashi')" class="hover:text-white p-0.5">⋮</button></div>
@@ -245,7 +245,7 @@
 
       <section class="space-y-2.5">
         <div class="px-4"><h2 class="text-lg font-bold tracking-tight text-white">Your Watchlist</h2></div>
-        <div class="flex gap-3 overflow-x-auto no-scrollbar px-4 pt-1 pb-2">
+        <div class="flex gap-3 overflow-x-auto no-scrollbar flex-nowrap scroll-smooth px-4 pt-1 pb-2">
           <div class="flex-none w-44 space-y-1.5 cursor-pointer" onclick="openAnimeDetails('Kaguya-sama: Love is War', 'Romance, Comedy', 'Dub | Sub')">
             <div class="w-full aspect-[16/10] rounded-sm overflow-hidden bg-neutral-900 border border-white/5 relative"><img src="https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?q=80&w=600&auto=format&fit=crop" class="w-full h-full object-cover"/><div class="absolute inset-0 bg-black/40 flex items-center justify-center"><span class="text-[10px] font-bold text-white bg-black/60 px-2 py-1 rounded">LOVE IS WAR</span></div></div>
             <p class="text-xs font-semibold text-white truncate">Kaguya-sama: Love i...</p>
@@ -263,7 +263,7 @@
 
       <section class="space-y-2.5">
         <div class="px-4"><h2 class="text-lg font-bold tracking-tight text-white">New Episodes</h2><p class="text-xs text-neutral-400 font-medium">Today</p></div>
-        <div class="flex gap-3 overflow-x-auto no-scrollbar px-4 pt-1 pb-2">
+        <div class="flex gap-3 overflow-x-auto no-scrollbar flex-nowrap scroll-smooth px-4 pt-1 pb-2">
           <div class="flex-none w-56 space-y-1.5 cursor-pointer" onclick="openAnimeDetails('Crowned in a Hundred Days', 'Romance, Fantasy', 'Subtitled')">
             <p class="text-xs font-bold text-cr-cyan">9:30 am</p>
             <div class="w-full aspect-[16/9] rounded-sm overflow-hidden bg-neutral-800"><img src="https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?q=80&w=600&auto=format&fit=crop" class="w-full h-full object-cover"/></div>
@@ -298,19 +298,19 @@
 
       <section class="space-y-2.5">
         <div class="px-4"><h2 class="text-lg font-bold tracking-tight text-white">100 Anime Characters vs. 1 Gorilla</h2></div>
-        <div class="flex gap-3 overflow-x-auto no-scrollbar px-4 pt-1 pb-2">
-          <div class="flex-none w-32 space-y-1.5 cursor-pointer" onclick="openAnimeDetails('Dragon Ball', 'Action, Shonen, Classic', 'Dub | Sub')"><div class="w-full aspect-[2/3] rounded-sm overflow-hidden bg-neutral-800"><img src="https://images.unsplash.com/photo-1578632767115-351597cf2477?q=80&w=600&auto=format&fit=crop" class="w-full h-full object-cover"/></div><p class="text-xs font-semibold text-white truncate">Dragon Ball</p><div class="flex items-center justify-between text-[11px] text-cr-subtext"><span>Dub | Sub</span><button onclick="event.stopPropagation(); openActionSheet('Dragon Ball')" class="hover:text-white p-0.5">⋮</button></div></div>
-          <div class="flex-none w-32 space-y-1.5 cursor-pointer" onclick="openAnimeDetails('Dragon Ball Z', 'Super Saiyan, Action', 'Dub | Sub')"><div class="w-full aspect-[2/3] rounded-sm overflow-hidden bg-neutral-800"><img src="https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=600&auto=format&fit=crop" class="w-full h-full object-cover"/></div><p class="text-xs font-semibold text-white truncate">Dragon Ball Z</p><div class="flex items-center justify-between text-[11px] text-cr-subtext"><span>Dub | Sub</span><button onclick="event.stopPropagation(); openActionSheet('Dragon Ball Z')" class="hover:text-white p-0.5">⋮</button></div></div>
-          <div class="flex-none w-32 space-y-1.5 cursor-pointer" onclick="openAnimeDetails('Dragon Ball GT', 'Action, Adventure', 'Dub | Sub')"><div class="w-full aspect-[2/3] rounded-sm overflow-hidden bg-neutral-800"><img src="https://images.unsplash.com/photo-1541701494587-cb58502866ab?q=80&w=600&auto=format&fit=crop" class="w-full h-full object-cover"/></div><p class="text-xs font-semibold text-white truncate">Dragon Ball GT</p><div class="flex items-center justify-between text-[11px] text-cr-subtext"><span>Dub | Sub</span><button onclick="event.stopPropagation(); openActionSheet('Dragon Ball GT')" class="hover:text-white p-0.5">⋮</button></div></div>
+        <div class="flex gap-3 overflow-x-auto no-scrollbar flex-nowrap scroll-smooth px-4 pt-1 pb-2">
+          <div class="flex-none w-32 snap-start space-y-1.5 cursor-pointer" onclick="openAnimeDetails('Dragon Ball', 'Action, Shonen, Classic', 'Dub | Sub')"><div class="w-full aspect-[2/3] rounded-sm overflow-hidden bg-neutral-800"><img src="https://images.unsplash.com/photo-1578632767115-351597cf2477?q=80&w=600&auto=format&fit=crop" class="w-full h-full object-cover"/></div><p class="text-xs font-semibold text-white truncate">Dragon Ball</p><div class="flex items-center justify-between text-[11px] text-cr-subtext"><span>Dub | Sub</span><button onclick="event.stopPropagation(); openActionSheet('Dragon Ball')" class="hover:text-white p-0.5">⋮</button></div></div>
+          <div class="flex-none w-32 snap-start space-y-1.5 cursor-pointer" onclick="openAnimeDetails('Dragon Ball Z', 'Super Saiyan, Action', 'Dub | Sub')"><div class="w-full aspect-[2/3] rounded-sm overflow-hidden bg-neutral-800"><img src="https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=600&auto=format&fit=crop" class="w-full h-full object-cover"/></div><p class="text-xs font-semibold text-white truncate">Dragon Ball Z</p><div class="flex items-center justify-between text-[11px] text-cr-subtext"><span>Dub | Sub</span><button onclick="event.stopPropagation(); openActionSheet('Dragon Ball Z')" class="hover:text-white p-0.5">⋮</button></div></div>
+          <div class="flex-none w-32 snap-start space-y-1.5 cursor-pointer" onclick="openAnimeDetails('Dragon Ball GT', 'Action, Adventure', 'Dub | Sub')"><div class="w-full aspect-[2/3] rounded-sm overflow-hidden bg-neutral-800"><img src="https://images.unsplash.com/photo-1541701494587-cb58502866ab?q=80&w=600&auto=format&fit=crop" class="w-full h-full object-cover"/></div><p class="text-xs font-semibold text-white truncate">Dragon Ball GT</p><div class="flex items-center justify-between text-[11px] text-cr-subtext"><span>Dub | Sub</span><button onclick="event.stopPropagation(); openActionSheet('Dragon Ball GT')" class="hover:text-white p-0.5">⋮</button></div></div>
         </div>
       </section>
 
       <section class="space-y-2.5">
         <div class="px-4"><h2 class="text-lg font-bold tracking-tight text-white">Get Your Rom-Com Fix</h2></div>
-        <div class="flex gap-3 overflow-x-auto no-scrollbar px-4 pt-1 pb-2">
-          <div class="flex-none w-32 space-y-1.5 cursor-pointer" onclick="openAnimeDetails('Love After World Domination', 'Romance, Superhero, Comedy', 'Dub | Sub')"><div class="w-full aspect-[2/3] rounded-sm overflow-hidden bg-neutral-800"><img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=600&auto=format&fit=crop" class="w-full h-full object-cover"/></div><p class="text-xs font-semibold text-white truncate">Love After World Do...</p><div class="flex items-center justify-between text-[11px] text-cr-subtext"><span>Dub | Sub</span><button onclick="event.stopPropagation(); openActionSheet('Love After World Domination')" class="hover:text-white p-0.5">⋮</button></div></div>
-          <div class="flex-none w-32 space-y-1.5 cursor-pointer" onclick="openAnimeDetails('I\'m in Love with the Villainess', 'Yuri, Isekai, Comedy', 'Dub | Sub')"><div class="w-full aspect-[2/3] rounded-sm overflow-hidden bg-neutral-800"><img src="https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?q=80&w=600&auto=format&fit=crop" class="w-full h-full object-cover"/></div><p class="text-xs font-semibold text-white truncate">I'm in Love with the Vi...</p><div class="flex items-center justify-between text-[11px] text-cr-subtext"><span>Dub | Sub</span><button onclick="event.stopPropagation(); openActionSheet('Villainess RomCom')" class="hover:text-white p-0.5">⋮</button></div></div>
-          <div class="flex-none w-32 space-y-1.5 cursor-pointer" onclick="openAnimeDetails('I\'m Giving the Disgraced Noble Lady a Crash Course', 'Romance, Fantasy', 'Subtitled')"><div class="w-full aspect-[2/3] rounded-sm overflow-hidden bg-neutral-800"><img src="https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?q=80&w=600&auto=format&fit=crop" class="w-full h-full object-cover"/></div><p class="text-xs font-semibold text-white truncate">I'm Giving the Disgra...</p><div class="flex items-center justify-between text-[11px] text-cr-subtext"><span>Subtitled</span><button onclick="event.stopPropagation(); openActionSheet('Disgraced Noble Lady')" class="hover:text-white p-0.5">⋮</button></div></div>
+        <div class="flex gap-3 overflow-x-auto no-scrollbar flex-nowrap scroll-smooth px-4 pt-1 pb-2">
+          <div class="flex-none w-32 snap-start space-y-1.5 cursor-pointer" onclick="openAnimeDetails('Love After World Domination', 'Romance, Superhero, Comedy', 'Dub | Sub')"><div class="w-full aspect-[2/3] rounded-sm overflow-hidden bg-neutral-800"><img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=600&auto=format&fit=crop" class="w-full h-full object-cover"/></div><p class="text-xs font-semibold text-white truncate">Love After World Do...</p><div class="flex items-center justify-between text-[11px] text-cr-subtext"><span>Dub | Sub</span><button onclick="event.stopPropagation(); openActionSheet('Love After World Domination')" class="hover:text-white p-0.5">⋮</button></div></div>
+          <div class="flex-none w-32 snap-start space-y-1.5 cursor-pointer" onclick="openAnimeDetails('I\'m in Love with the Villainess', 'Yuri, Isekai, Comedy', 'Dub | Sub')"><div class="w-full aspect-[2/3] rounded-sm overflow-hidden bg-neutral-800"><img src="https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?q=80&w=600&auto=format&fit=crop" class="w-full h-full object-cover"/></div><p class="text-xs font-semibold text-white truncate">I'm in Love with the Vi...</p><div class="flex items-center justify-between text-[11px] text-cr-subtext"><span>Dub | Sub</span><button onclick="event.stopPropagation(); openActionSheet('Villainess RomCom')" class="hover:text-white p-0.5">⋮</button></div></div>
+          <div class="flex-none w-32 snap-start space-y-1.5 cursor-pointer" onclick="openAnimeDetails('I\'m Giving the Disgraced Noble Lady a Crash Course', 'Romance, Fantasy', 'Subtitled')"><div class="w-full aspect-[2/3] rounded-sm overflow-hidden bg-neutral-800"><img src="https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?q=80&w=600&auto=format&fit=crop" class="w-full h-full object-cover"/></div><p class="text-xs font-semibold text-white truncate">I'm Giving the Disgra...</p><div class="flex items-center justify-between text-[11px] text-cr-subtext"><span>Subtitled</span><button onclick="event.stopPropagation(); openActionSheet('Disgraced Noble Lady')" class="hover:text-white p-0.5">⋮</button></div></div>
         </div>
       </section>
 
@@ -331,18 +331,18 @@
 
       <section class="space-y-2.5">
         <div class="px-4"><h2 class="text-lg font-bold tracking-tight text-white">Memorable Openings</h2></div>
-        <div class="flex gap-3 overflow-x-auto no-scrollbar px-4 pt-1 pb-2">
-          <div class="flex-none w-32 space-y-1.5 cursor-pointer" onclick="openAnimeDetails('Black Clover', 'Shonen, Magic, Action', 'Dub | Sub')">
+        <div class="flex gap-3 overflow-x-auto no-scrollbar flex-nowrap scroll-smooth px-4 pt-1 pb-2">
+          <div class="flex-none w-32 snap-start space-y-1.5 cursor-pointer" onclick="openAnimeDetails('Black Clover', 'Shonen, Magic, Action', 'Dub | Sub')">
             <div class="w-full aspect-[2/3] rounded-sm overflow-hidden bg-neutral-800"><img src="https://images.unsplash.com/photo-1541701494587-cb58502866ab?q=80&w=600&auto=format&fit=crop" class="w-full h-full object-cover"/></div>
             <p class="text-xs font-semibold text-white truncate">Black Clover</p>
             <div class="flex items-center justify-between text-[11px] text-cr-subtext"><span>Dub | Sub</span><button onclick="event.stopPropagation(); openActionSheet('Black Clover')" class="hover:text-white p-0.5">⋮</button></div>
           </div>
-          <div class="flex-none w-32 space-y-1.5 cursor-pointer" onclick="openAnimeDetails('Naruto', 'Ninja, Classic', 'Dub | Sub')">
+          <div class="flex-none w-32 snap-start space-y-1.5 cursor-pointer" onclick="openAnimeDetails('Naruto', 'Ninja, Classic', 'Dub | Sub')">
             <div class="w-full aspect-[2/3] rounded-sm overflow-hidden bg-neutral-800"><img src="https://images.unsplash.com/photo-1578632767115-351597cf2477?q=80&w=600&auto=format&fit=crop" class="w-full h-full object-cover"/></div>
             <p class="text-xs font-semibold text-white truncate">Naruto</p>
             <div class="flex items-center justify-between text-[11px] text-cr-subtext"><span>Dub | Sub</span><button onclick="event.stopPropagation(); openActionSheet('Naruto Opening')" class="hover:text-white p-0.5">⋮</button></div>
           </div>
-          <div class="flex-none w-32 space-y-1.5 cursor-pointer" onclick="openAnimeDetails('Fullmetal Alchemist: Brotherhood', 'Fantasy, Drama, Shonen', 'Dub | Sub')">
+          <div class="flex-none w-32 snap-start space-y-1.5 cursor-pointer" onclick="openAnimeDetails('Fullmetal Alchemist: Brotherhood', 'Fantasy, Drama, Shonen', 'Dub | Sub')">
             <div class="w-full aspect-[2/3] rounded-sm overflow-hidden bg-neutral-800"><img src="https://images.unsplash.com/photo-1563089145-599997674d42?q=80&w=600&auto=format&fit=crop" class="w-full h-full object-cover"/></div>
             <p class="text-xs font-semibold text-white truncate">Fullmetal Alchemist:...</p>
             <div class="flex items-center justify-between text-[11px] text-cr-subtext"><span>Dub | Sub</span><button onclick="event.stopPropagation(); openActionSheet('FMA: Brotherhood')" class="hover:text-white p-0.5">⋮</button></div>
@@ -566,13 +566,6 @@
         </div>
       </div>
     </section>
-
-    <div id="sticky-premium-bar" class="fixed bottom-16 inset-x-0 max-w-[430px] mx-auto px-4 z-30 pointer-events-none transition-all duration-300">
-      <button onclick="openPremiumModal()" class="pointer-events-auto w-full bg-cr-gold hover:bg-cr-gold-hover active:scale-[0.99] text-black font-black text-sm py-3 px-4 rounded-full flex items-center justify-center gap-2 shadow-[0_4px_25px_rgba(250,184,24,0.35)]">
-        <svg class="w-5 h-5 fill-black" viewBox="0 0 24 24"><path d="M5 16L3 5l5.5 5L12 4l3.5 6L21 5l-2 11H5zm14 3c0 .6-.4 1-1 1H6c-.6 0-1-.4-1-1v-1h14v1z"/></svg>
-        <span>Go Premium</span>
-      </button>
-    </div>
 
     <nav class="fixed bottom-0 inset-x-0 max-w-[430px] mx-auto bg-[#161616] backdrop-blur-lg border-t border-neutral-900 px-2 py-1.5 z-40 flex items-center justify-around select-none">
       <button onclick="switchTab('home')" id="nav-home" class="flex flex-col items-center justify-center w-14 py-1 text-cr-orange transition"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg><span class="text-[10px] font-semibold mt-0.5">Home</span></button>
