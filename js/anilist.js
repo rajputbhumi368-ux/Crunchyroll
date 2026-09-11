@@ -94,9 +94,7 @@ async function fetchAniListPage(options = {}) {
       genre: options.genre || null,
       search: options.search || null
     });
-    const items = (data?.Page?.media || []).map(anilistItem);
-    if (!items.length) throw new Error('AniList returned no anime records');
-    return items;
+    return (data.Page.media || []).map(anilistItem);
   } catch (error) {
     console.warn('AniList unavailable; trying real Jikan/MAL catalog fallback.', error);
     try {
