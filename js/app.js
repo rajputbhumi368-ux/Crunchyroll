@@ -618,7 +618,7 @@ const SAMPLE_STREAM = "https://commondatastorage.googleapis.com/gtv-videos-bucke
       const home = document.getElementById('tab-home');
       if(!home) return;
       home.querySelectorAll('.flex.gap-3.overflow-x-auto').forEach((rail)=>{
-        const cards = Array.from(rail.children).filter(card => card.classList.contains('flex-none') && card.querySelector('img'));
+        const cards = Array.from(rail.children).filter(card => card.classList.contains('flex-none') && card.classList.contains('w-32') && card.querySelector('img'));
         if(!cards.length || cards.length >= 10) return;
         rail.classList.add('flex-nowrap','scroll-smooth');
         cards.forEach(card => card.classList.add('snap-start'));
