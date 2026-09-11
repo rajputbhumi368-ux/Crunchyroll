@@ -556,8 +556,11 @@
         <button onclick="showToast('Profile switching is unavailable')" class="w-full flex items-center justify-between py-6 text-[20px] border-b border-neutral-800"><span>Switch Profile</span><span class="text-3xl text-neutral-400">›</span></button>
         <div class="pt-7 pb-4 text-[20px] text-neutral-400">Server</div>
         <div class="border-b border-neutral-800">
-          <button onclick="selectAccountServer(1)" class="w-full flex items-center justify-between py-5 text-[18px]"><span>Server 1</span><span id="server-1-check" class="text-cr-orange">✓</span></button>
-          <button onclick="selectAccountServer(2)" class="w-full flex items-center justify-between py-5 text-[18px]"><span>Server 2</span><span id="server-2-check" class="hidden text-cr-orange">✓</span></button>
+          <button onclick="toggleServerChooser()" class="w-full flex items-center justify-between py-5 text-[18px]"><span>Server</span><span class="flex items-center gap-3 text-neutral-300"><span id="selected-server-label">Server 1</span><span id="server-chooser-arrow" class="text-3xl text-neutral-400">›</span></span></button>
+          <div id="server-chooser" class="hidden border-t border-neutral-800 bg-neutral-950">
+            <button onclick="selectAccountServer(1)" class="w-full flex items-center justify-between py-4 pl-4 pr-2 text-[17px]"><span>Server 1</span><span id="server-1-check" class="text-cr-orange">✓</span></button>
+            <button onclick="selectAccountServer(2)" class="w-full flex items-center justify-between py-4 pl-4 pr-2 text-[17px] border-t border-neutral-800"><span>Server 2</span><span id="server-2-check" class="hidden text-cr-orange">✓</span></button>
+          </div>
         </div>
         <div class="pt-7 pb-4 text-[20px] text-neutral-400">Membership</div>
         <div class="border-b border-neutral-800">
@@ -1261,9 +1264,17 @@
     function saveFromActionSheet(){ showToast('Saved "'+currentActionItem+'" to your Watchlist!'); watchlistSet.add(slugify(currentActionItem)); if(activeAnime){ updateWatchlistButtonsUI(); } renderWatchlist(); closeActionSheet(); }
     function downloadEntireCurrentSeason(){ showToast('Downloading '+(activeAnime&&activeAnime.seasons[activeSeasonIndex].name)+' in 1080p...'); }
     function shareAnimeLink(){ showToast('Share link copied to clipboard!'); }
+    function toggleServerChooser(){
+      const chooser=document.getElementById('server-chooser');
+      chooser.classList.toggle('hidden');
+      document.getElementById('server-chooser-arrow').innerText=chooser.classList.contains('hidden')?'›':'⌃';
+    }
     function selectAccountServer(server){
       document.getElementById('server-1-check').classList.toggle('hidden',server!==1);
       document.getElementById('server-2-check').classList.toggle('hidden',server!==2);
+      document.getElementById('selected-server-label').innerText='Server '+server;
+      document.getElementById('server-chooser').classList.add('hidden');
+      document.getElementById('server-chooser-arrow').innerText='›';
       showToast('Connected to Server '+server);
     }
     function openPremiumModal(){ document.getElementById('premium-modal').classList.remove('hidden'); }
