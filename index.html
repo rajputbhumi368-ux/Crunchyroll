@@ -773,8 +773,18 @@
   <div id="startup-splash" class="fixed inset-0 z-[100] bg-black transition-opacity duration-500">
     <img src="Screenshot_20260911-220948_Crunchyroll.png" alt="Crunchyroll startup" class="w-full h-full object-cover">
   </div>
-  <div id="normal-loading" class="hidden fixed inset-0 z-30 bg-black pointer-events-none">
-    <img src="Screenshot_20260911-221000_Crunchyroll.png" alt="Crunchyroll loading" class="w-full h-full object-cover">
+  <div id="normal-loading" class="hidden fixed inset-0 z-30 bg-black/95 pointer-events-none">
+    <div class="absolute top-5 left-5 flex items-center gap-2">
+      <img src="61362667f5966900044cbf72.png" alt="Crunchyroll" class="w-10 h-7 object-contain">
+    </div>
+    <div class="absolute inset-0 flex flex-col items-center justify-center gap-5 pb-10">
+      <div class="relative w-20 h-20 flex items-center justify-center">
+        <span class="absolute inset-0 rounded-full border-[5px] border-neutral-800"></span>
+        <span class="absolute inset-0 rounded-full border-[5px] border-transparent border-t-cr-orange border-r-cr-orange animate-spin"></span>
+        <img src="61362667f5966900044cbf72.png" alt="" class="w-12 h-7 object-contain animate-pulse">
+      </div>
+      <p class="text-sm text-neutral-300 tracking-wide animate-pulse">Loading...</p>
+    </div>
   </div>
 
   <div id="search-modal" class="fixed inset-0 z-[80] hidden bg-black text-white">
