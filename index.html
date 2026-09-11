@@ -769,6 +769,15 @@
     </div>
   </div>
 
+
+  <div id="startup-splash" class="fixed inset-0 z-[100] bg-black flex items-center justify-center transition-opacity duration-500">
+    <div class="w-[285px] h-[82px] flex items-center justify-center overflow-hidden"><img src="61362667f5966900044cbf72.png" alt="Crunchyroll" class="w-full h-full object-contain"></div>
+  </div>
+  <div id="normal-loading" class="hidden fixed inset-0 z-30 bg-black pointer-events-none">
+    <div class="absolute top-5 left-5 w-12 h-9 overflow-hidden"><img src="61362667f5966900044cbf72.png" alt="Crunchyroll" class="w-full h-full object-contain"></div>
+    <div class="absolute inset-0 flex items-center justify-center pb-10"><span class="block w-12 h-12 rounded-full border-[5px] border-cr-orange border-t-transparent animate-spin"></span></div>
+  </div>
+
   <div id="search-modal" class="fixed inset-0 z-[80] hidden bg-black text-white">
     <div class="flex items-center gap-4 h-[76px] px-6 bg-[#202126] border-b border-neutral-800">
       <button onclick="closeSearchModal()" class="p-1" aria-label="Back"><svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 18l-6-6 6-6"/></svg></button>
@@ -1244,6 +1253,19 @@
       else { button.classList.add('bg-cr-orange','text-black'); button.classList.remove('text-cr-orange'); watchlistSet.add(slugify(title)); showToast('Added "'+title+'" to your Watchlist!'); }
       renderWatchlist();
     }
+    function hideStartupSplash(){
+      const splash=document.getElementById('startup-splash');
+      if(!splash) return;
+      splash.classList.add('opacity-0');
+      setTimeout(()=>splash.remove(),550);
+    }
+    function showNormalLoading(duration=750){
+      const loader=document.getElementById('normal-loading');
+      if(!loader) return;
+      loader.classList.remove('hidden');
+      setTimeout(()=>loader.classList.add('hidden'),duration);
+    }
+    window.addEventListener('load',()=>setTimeout(hideStartupSplash,1000));
     function switchTab(tabId){
       ['home','lists','browse','simulcasts','account'].forEach(t=>{
         document.getElementById('tab-'+t).classList.add('hidden');
@@ -1255,6 +1277,7 @@
       document.getElementById('nav-'+tabId).classList.remove('text-neutral-400');
       document.getElementById('app-top-header').classList.toggle('hidden', tabId !== 'home');
       document.getElementById('sticky-premium-bar').classList.toggle('hidden', tabId !== 'home');
+      if (tabId === 'browse') showNormalLoading();
       if (tabId === 'lists') renderWatchlist();
       window.scrollTo({top:0,behavior:'smooth'});
     }
