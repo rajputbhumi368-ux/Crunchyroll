@@ -458,7 +458,8 @@ const SAMPLE_STREAM = "https://commondatastorage.googleapis.com/gtv-videos-bucke
       document.getElementById('nav-'+tabId).classList.add('text-cr-orange');
       document.getElementById('nav-'+tabId).classList.remove('text-neutral-400');
       document.getElementById('app-top-header').classList.toggle('hidden', tabId !== 'home');
-      document.getElementById('sticky-premium-bar').classList.toggle('hidden', tabId !== 'home');
+      const stickyPremium = document.getElementById('sticky-premium-bar');
+      if (stickyPremium) stickyPremium.classList.toggle('hidden', tabId !== 'home');
       if (tabId === 'browse') showNormalLoading();
       if (tabId === 'lists') renderWatchlist();
       window.scrollTo({top:0,behavior:'smooth'});
