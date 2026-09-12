@@ -6,3 +6,27 @@
       text-shadow: 0 3px 18px rgba(0,0,0,0.95);
       letter-spacing: 1px;
     }
+
+/* Crunchyroll-style mobile motion and scrolling polish */
+:root { color-scheme: dark; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body { text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; }
+button, a { -webkit-tap-highlight-color: transparent; touch-action: manipulation; }
+img { display: block; }
+.no-scrollbar {
+  overscroll-behavior-x: contain;
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+}
+.no-scrollbar > * { scroll-snap-align: start; }
+.no-scrollbar img { user-select: none; -webkit-user-drag: none; }
+@media (prefers-reduced-motion: no-preference) {
+  button, a, .cursor-pointer { transition: transform 160ms ease, opacity 160ms ease, background-color 160ms ease, color 160ms ease; }
+  button:active, a:active, .cursor-pointer:active { transform: scale(.985); }
+}
+@media (prefers-reduced-motion: reduce) {
+  html, .no-scrollbar { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+}
+
