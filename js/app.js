@@ -215,7 +215,7 @@ const SAMPLE_STREAM = "https://commondatastorage.googleapis.com/gtv-videos-bucke
           btn.className = 'pb-3 whitespace-nowrap relative flex items-center gap-1.5 ' + (on ? 'text-white' : 'text-neutral-400');
           btn.innerHTML = '<svg class="w-4 h-4 text-cr-gold" viewBox="0 0 24 24" fill="currentColor"><path d="M5 16L3 5l5.5 5L12 4l3.5 6L21 5l-2 11H5z"/></svg>Downloads' + (on ? '<span class="absolute left-0 right-0 -bottom-px h-[3px] bg-cr-orange rounded-t"></span>' : '');
         } else {
-          const label = t==='watchlist'?'Watchlist':t==='crunchylists'?'Crunchylists':'History';
+          const label = t==='watchlist'?'Watchlist':t==='crunchylists'?'AniLists':'History';
           btn.className = 'pb-3 whitespace-nowrap relative ' + (on ? 'text-white' : 'text-neutral-400');
           btn.innerHTML = label + (on ? '<span class="absolute left-0 right-0 -bottom-px h-[3px] bg-cr-orange rounded-t"></span>' : '');
         }
